@@ -496,11 +496,15 @@
             <h3>Send a message</h3>
             <p class="form-sub">Tell me a little about the project or idea. I'll get back to you.</p>
 
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-                  action="thank-you.html" id="contactForm">
-              <input type="hidden" name="form-name" value="contact">
+            <!-- FormSubmit works on GitHub Pages, Netlify and any static host.
+                 The first submission sends a one-time activation email to the address below. -->
+            <form name="contact" method="POST" action="https://formsubmit.co/nomanqasim.work@gmail.com" id="contactForm">
+              <input type="hidden" name="_subject" value="New portfolio message">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://techwithnoman.github.io/nomanqasim.github.io/thank-you.html">
               <p class="hidden-field" aria-hidden="true">
-                <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                <label>Don't fill this out if you're human: <input name="_honey" tabindex="-1" autocomplete="off"></label>
               </p>
 
               <div class="field">

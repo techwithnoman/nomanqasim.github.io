@@ -1,7 +1,7 @@
 # M Noman Qasim — Portfolio Website
 
 A dark, premium single-page portfolio built with plain **HTML, CSS and JavaScript**.
-No frameworks, no build step — ready to drag onto Netlify.
+No frameworks, no build step — ready for GitHub Pages, Netlify or any static host.
 
 ## Files
 
@@ -35,10 +35,7 @@ content down the page.
 To replace it later:
 
 1. Save the new photo as **`noman.jpg`**
-2. Put it in:
-   ```
-   portfolio\assets\images\
-   ```
+2. Put it in `assets/images/`
 3. Refresh the page.
 
 Recommended: a portrait crop (4:5) or square, roughly 900 × 1100 px, under 300 KB.
@@ -46,15 +43,15 @@ The image is cropped from the top-centre, so keep the face in the upper half.
 
 ## 2. Preview locally
 
-- **Quickest:** double-click `portfolio\index.html`.
+- **Quickest:** double-click `index.html`.
 - **With the contact form and fonts behaving normally:**
   ```powershell
-  npx serve portfolio
+  npx serve .
   ```
   then open the URL it prints.
 
 On localhost the contact form shows a "Preview mode" notice instead of submitting.
-It starts working after the site is deployed to Netlify.
+It starts working as soon as the site is live on GitHub Pages, Netlify or another host.
 
 ## 3. What to edit
 
@@ -76,35 +73,41 @@ Contact details currently used:
 - GitHub: `https://github.com/techwithnoman`
 - LinkedIn: `https://www.linkedin.com/in/m-noman-qasim-0768b33a1`
 
-## 4. Deploy to Netlify
+## 4. Deploy
 
-**Option A — drag & drop (fastest)**
+### GitHub Pages (current setup)
 
-1. Go to <https://app.netlify.com/drop>
-2. Drag the **`portfolio`** folder (the one containing `index.html`) onto the page.
-3. You get a live URL immediately. Rename it under **Site configuration → Change site name**.
+1. Repository: `techwithnoman/nomanqasim.github.io`
+2. Replace `index.html`, `thank-you.html`, `README.md`, `netlify.toml` and the
+   `assets/` folder at the repository root.
+3. Commit to the `main` branch — GitHub Pages publishes automatically.
+4. Live URL: <https://techwithnoman.github.io/nomanqasim.github.io/>
 
-**Option B — GitHub (auto-deploy on every push)**
+### Netlify (optional)
 
-1. Push this folder to a GitHub repository.
-2. Netlify → **Add new site → Import an existing project**.
-3. Choose the repo. Build command: *leave empty*. Publish directory: `.`
-4. Deploy — every push updates the site automatically.
+1. Go to <https://app.netlify.com/drop> and drag this folder (the one containing
+   `index.html`) onto the page, or import the GitHub repository.
+2. Build command: *leave empty*. Publish directory: `.`
+3. `netlify.toml` already sets the publish directory and a few security headers.
 
-`netlify.toml` already sets the publish directory and a few security headers.
+The site works the same on both hosts; the contact form described below is host-independent.
 
 ## 5. Contact form
 
-The form uses **Netlify Forms** — no backend or third-party account needed.
+The form uses **FormSubmit.co**, so it works on GitHub Pages and any other static host.
 
-- It has `data-netlify="true"` and a hidden `form-name` field.
-- Netlify detects the form on the first deploy. Check **Site → Forms** to confirm.
-- Submissions appear in the Netlify dashboard; add email notifications there.
-- On success, visitors land on `thank-you.html`.
-- Free plan: 100 submissions per month.
-- A honeypot field blocks basic spam bots.
-
-If you ever move off Netlify, switch the form to Formspree/EmailJS or a custom backend.
+- The form action is `https://formsubmit.co/nomanqasim.work@gmail.com`.
+- JavaScript posts to the FormSubmit **AJAX** endpoint, so visitors stay on the page and
+  see a success or error note.
+- **One-time activation:** the first submission sends an activation email to
+  `nomanqasim.work@gmail.com`. Open it and click the activation link. Until then the form
+  shows an "open a pre-filled email" fallback so no message is lost.
+- After activation, submissions arrive in the inbox. Replying to the email goes back to
+  the visitor's address.
+- The hidden `_honey` field is a honeypot; `_captcha` is disabled to keep the form simple.
+- `thank-you.html` is the no-JavaScript fallback. The hidden `_next` field points to its
+  full GitHub Pages URL — update it if the domain ever changes.
+- No backend, account or deployment configuration is required.
 
 ## 6. Notes
 
@@ -117,6 +120,8 @@ If you ever move off Netlify, switch the form to Formspree/EmailJS or a custom b
 ## 7. After deploying
 
 - Open the site on your phone and test the menu, buttons and form.
+- Submit the form once and click the FormSubmit activation link sent to your inbox.
 - Add the live URL to your GitHub profile, LinkedIn and CV.
 - Update `og:image` in `index.html` to the full URL (e.g.
-  `https://your-site.netlify.app/assets/images/og-image.png`) for correct social previews.
+  `https://techwithnoman.github.io/nomanqasim.github.io/assets/images/og-image.png`)
+  for correct social previews.
