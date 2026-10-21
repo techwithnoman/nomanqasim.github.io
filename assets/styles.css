@@ -1133,14 +1133,6 @@ p { text-wrap: pretty; }
 
 .contact-card .btn { margin-top: 1.05rem; }
 
-.hidden-field {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
 .form-note {
   margin-top: 0.9rem;
   padding: 0.7rem 0.85rem;
@@ -1151,15 +1143,15 @@ p { text-wrap: pretty; }
   font-size: 0.8rem;
   line-height: 1.5;
 }
-.form-note a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+
+.send-options {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
 }
-.form-note--error {
-  border-color: rgba(248, 113, 113, 0.35);
-  background: rgba(248, 113, 113, 0.08);
-  color: #fca5a5;
+.send-options .btn {
+  margin-top: 0;
+  justify-content: center;
 }
 
 .form-small {

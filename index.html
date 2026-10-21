@@ -494,41 +494,41 @@
 
           <div class="contact-card">
             <h3>Send a message</h3>
-            <p class="form-sub">Tell me a little about the project or idea. I'll get back to you.</p>
+            <p class="form-sub">Tell me a little about the project or idea, then choose WhatsApp or Gmail to send it.</p>
 
-            <!-- FormSubmit works on GitHub Pages, Netlify and any static host.
-                 The first submission sends a one-time activation email to the address below. -->
-            <form name="contact" method="POST" action="https://formsubmit.co/nomanqasim.work@gmail.com" id="contactForm">
-              <input type="hidden" name="_subject" value="New portfolio message">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="https://techwithnoman.github.io/nomanqasim.github.io/thank-you.html">
-              <p class="hidden-field" aria-hidden="true">
-                <label>Don't fill this out if you're human: <input name="_honey" tabindex="-1" autocomplete="off"></label>
-              </p>
-
+            <form action="#contact" method="get" id="contactForm">
               <div class="field">
                 <label for="name">Your name</label>
                 <input id="name" name="name" type="text" placeholder="Enter your name" autocomplete="name" required>
               </div>
 
               <div class="field">
-                <label for="email">Email address</label>
-                <input id="email" name="email" type="email" placeholder="Enter your email address" autocomplete="email" required>
+                <label for="message">Your idea or message</label>
+                <textarea id="message" name="message" rows="6" placeholder="What do you want to build or discuss?" required></textarea>
               </div>
 
-              <div class="field">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or inquiry" required></textarea>
-              </div>
-
-              <button class="btn btn--accent btn--block" type="submit">
+              <button class="btn btn--accent btn--block" type="submit" id="composeBtn">
                 Send message
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
               </button>
 
               <p class="form-note" id="formNote" role="status" hidden></p>
-              <p class="form-small">Or email me directly at <a href="mailto:nomanqasim.work@gmail.com">nomanqasim.work@gmail.com</a></p>
+
+              <div class="send-options" id="sendOptions" hidden aria-label="Choose how to send your message">
+                <a class="btn btn--accent btn--block send-option" id="sendWhatsApp" href="#" target="_blank" rel="noopener">
+                  <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+                  Send on WhatsApp
+                </a>
+                <a class="btn btn--ghost btn--block send-option" id="sendGmail" href="#" target="_blank" rel="noopener">
+                  <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+                  Send with Gmail
+                </a>
+              </div>
+
+              <p class="form-small">Prefer email? Write to <a href="mailto:nomanqasim.work@gmail.com">nomanqasim.work@gmail.com</a></p>
+              <noscript>
+                <p class="form-small">JavaScript is needed for the WhatsApp/Gmail buttons. Please email me directly.</p>
+              </noscript>
             </form>
           </div>
         </div>

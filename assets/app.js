@@ -118,46 +118,20 @@
     });
   }
 
-  /* ---------- Contact form ---------- */
+  /* ---------- Contact form: choose WhatsApp or Gmail ---------- */
   var form = $("#contactForm");
   var formNote = $("#formNote");
+  var sendOptions = $("#sendOptions");
+  var sendWhatsApp = $("#sendWhatsApp");
+  var sendGmail = $("#sendGmail");
+  var composeBtn = $("#composeBtn");
 
-  if (form) {
-    var submitBtn = form.querySelector('button[type="submit"]');
-    var submitLabel = submitBtn ? submitBtn.innerHTML : "";
-
-    function setNote(message, isError) {
-      if (!formNote) return;
-      formNote.className = isError ? "form-note form-note--error" : "form-note";
-      formNote.textContent = message;
-      formNote.hidden = false;
-    }
-
-    function buildMailto(name, email, message) {
-      var subject = "Portfolio message from " + (name || "website visitor");
-      var body = "Name: " + (name || "") +
-        "\nEmail: " + (email || "") +
-        "\n\n" + (message || "");
-      return "mailto:nomanqasim.work@gmail.com?subject=" +
-        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    }
-
-    function showFallback(name, email, message) {
-      if (!formNote) return;
-      formNote.className = "form-note form-note--error";
-      formNote.textContent = "The message couldn't be sent automatically. Please email me directly: ";
-      var link = document.createElement("a");
-      link.href = buildMailto(name, email, message);
-      link.textContent = "open a pre-filled email";
-      formNote.appendChild(link);
-      formNote.appendChild(document.createTextNode("."));
-      formNote.hidden = false;
-    }
-
-    function resetButton() {
-      if (!submitBtn) return;
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = submitLabel;
+  if (form && formNote && sendOptions && sendWhatsApp && sendGmail && composeBtn) {
+    function resetComposer() {
+      sendOptions.hidden = true;
+      composeBtn.hidden = false;
+      formNote.hidden = true;
+      formNote.textContent = "";
     }
 
     form.addEventListener("submit", function (event) {
@@ -168,80 +142,38 @@
         return;
       }
 
-      var honey = form.elements["_honey"];
-      if (honey && honey.value) return;
-
       var name = form.elements["name"].value.trim();
-      var email = form.elements["email"].value.trim();
       var message = form.elements["message"].value.trim();
 
-      var isLocal = location.protocol === "file:" ||
-        location.hostname === "localhost" ||
-        location.hostname === "127.0.0.1";
-
-      if (isLocal) {
-        setNote("Preview mode — the form sends through FormSubmit once the site is live. For now, use the email link below.", false);
+      if (!name) {
+        form.elements["name"].value = "";
+        form.reportValidity();
+        return;
+      }
+      if (!message) {
+        form.elements["message"].value = "";
+        form.reportValidity();
         return;
       }
 
-      var action = form.getAttribute("action") || "";
-      var endpoint = action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/");
+      var text = "Hi Noman, I'm " + name + ".\n\n" + message;
 
-      if (!window.fetch || endpoint === action) {
-        showFallback(name, email, message);
-        return;
-      }
+      sendWhatsApp.href = "https://wa.me/923141626594?text=" + encodeURIComponent(text);
+      sendGmail.href = "https://mail.google.com/mail/?view=cm&fs=1" +
+        "&to=" + encodeURIComponent("nomanqasim.work@gmail.com") +
+        "&su=" + encodeURIComponent("Portfolio message from " + name) +
+        "&body=" + encodeURIComponent(text);
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending...";
-      }
-      if (formNote) {
-        formNote.hidden = true;
-        formNote.textContent = "";
-      }
+      composeBtn.hidden = true;
+      sendOptions.hidden = false;
+      formNote.className = "form-note";
+      formNote.textContent = "Your message is ready. Choose WhatsApp or Gmail below.";
+      formNote.hidden = false;
+      sendWhatsApp.focus();
+    });
 
-      var controller = window.AbortController ? new AbortController() : null;
-      var timer = controller ? setTimeout(function () {
-        controller.abort();
-      }, 15000) : null;
-
-      fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          message: message,
-          _subject: "New portfolio message from " + name,
-          _template: "table",
-          _captcha: "false"
-        }),
-        signal: controller ? controller.signal : undefined
-      })
-        .then(function (response) {
-          return response.json().catch(function () {
-            return {};
-          }).then(function (data) {
-            if (!response.ok) throw new Error("HTTP " + response.status);
-            return data;
-          });
-        })
-        .then(function (data) {
-          if (timer) clearTimeout(timer);
-          var success = data && (data.success === true || data.success === "true");
-          if (!success) throw new Error((data && data.message) || "Submission failed");
-          setNote("Thanks, " + name + " — your message has been sent. I'll get back to you soon.", false);
-          form.reset();
-        })
-        .catch(function () {
-          if (timer) clearTimeout(timer);
-          showFallback(name, email, message);
-        })
-        .then(resetButton);
+    [form.elements["name"], form.elements["message"]].forEach(function (field) {
+      field.addEventListener("input", resetComposer);
     });
   }
 

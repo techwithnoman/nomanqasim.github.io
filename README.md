@@ -7,7 +7,7 @@ No frameworks, no build step — ready for GitHub Pages, Netlify or any static h
 
 ```
 index.html                 Main portfolio page
-thank-you.html             Confirmation page after the contact form
+thank-you.html             Optional standalone confirmation page (not used by the form)
 netlify.toml               Netlify settings (publish root + security headers)
 assets/
   styles.css               All styling and responsive rules
@@ -50,8 +50,8 @@ The image is cropped from the top-centre, so keep the face in the upper half.
   ```
   then open the URL it prints.
 
-On localhost the contact form shows a "Preview mode" notice instead of submitting.
-It starts working as soon as the site is live on GitHub Pages, Netlify or another host.
+The contact form is frontend-only, so it works locally too: enter a name and message,
+click **Send message**, then choose WhatsApp or Gmail.
 
 ## 3. What to edit
 
@@ -94,20 +94,26 @@ The site works the same on both hosts; the contact form described below is host-
 
 ## 5. Contact form
 
-The form uses **FormSubmit.co**, so it works on GitHub Pages and any other static host.
+The form is **frontend-only** — no backend, no FormSubmit, no activation email.
 
-- The form action is `https://formsubmit.co/nomanqasim.work@gmail.com`.
-- JavaScript posts to the FormSubmit **AJAX** endpoint, so visitors stay on the page and
-  see a success or error note.
-- **One-time activation:** the first submission sends an activation email to
-  `nomanqasim.work@gmail.com`. Open it and click the activation link. Until then the form
-  shows an "open a pre-filled email" fallback so no message is lost.
-- After activation, submissions arrive in the inbox. Replying to the email goes back to
-  the visitor's address.
-- The hidden `_honey` field is a honeypot; `_captcha` is disabled to keep the form simple.
-- `thank-you.html` is the no-JavaScript fallback. The hidden `_next` field points to its
-  full GitHub Pages URL — update it if the domain ever changes.
-- No backend, account or deployment configuration is required.
+1. The visitor enters their **name** and **idea/message**.
+2. Clicking **Send message** reveals two buttons: **WhatsApp** and **Gmail**.
+3. **WhatsApp** opens `wa.me/923141626594` with a prefilled message.
+4. **Gmail** opens Gmail compose to `nomanqasim.work@gmail.com` with the subject and
+   message prefilled.
+5. The visitor presses send inside WhatsApp or Gmail.
+
+The message is built as:
+
+```
+Hi Noman, I'm {name}.
+
+{message}
+```
+
+Because the visitor sends from their own WhatsApp/Gmail account, replies come straight
+back to them. Editing either field after the buttons appear resets the composer.
+The direct email link below the form remains available as a fallback.
 
 ## 6. Notes
 
@@ -120,7 +126,8 @@ The form uses **FormSubmit.co**, so it works on GitHub Pages and any other stati
 ## 7. After deploying
 
 - Open the site on your phone and test the menu, buttons and form.
-- Submit the form once and click the FormSubmit activation link sent to your inbox.
+- Test both send buttons: WhatsApp should open with the prefilled message, and Gmail
+  should open a compose window.
 - Add the live URL to your GitHub profile, LinkedIn and CV.
 - Update `og:image` in `index.html` to the full URL (e.g.
   `https://techwithnoman.github.io/nomanqasim.github.io/assets/images/og-image.png`)
