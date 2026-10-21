@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100" role="img" aria-label="Placeholder portrait for M Noman Qasim">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17231d"/>
+      <stop offset="1" stop-color="#0b0f0e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="36%" r="62%">
+      <stop offset="0" stop-color="#22c55e" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#22c55e" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="#f5f7f5" stroke-opacity=".045" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="1100" fill="url(#bg)"/>
+  <rect width="900" height="1100" fill="url(#grid)"/>
+  <rect width="900" height="1100" fill="url(#glow)"/>
+  <circle cx="450" cy="450" r="196" fill="none" stroke="#22c55e" stroke-opacity=".28" stroke-width="2"/>
+  <circle cx="450" cy="450" r="246" fill="none" stroke="#f5f7f5" stroke-opacity=".07" stroke-width="1.5"/>
+  <text x="450" y="500" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="172" font-weight="800" fill="#f5f7f5" letter-spacing="-10">NQ</text>
+  <text x="450" y="760" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="23" font-weight="600" fill="#a3ada7" letter-spacing="6">M NOMAN QASIM</text>
+  <text x="450" y="806" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#22c55e" letter-spacing="4">FRONTEND DEVELOPER</text>
+</svg>

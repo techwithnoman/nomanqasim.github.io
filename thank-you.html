@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Message sent — M Noman Qasim</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0B0F0E">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .thanks-page {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 2rem 1.25rem;
+      background:
+        radial-gradient(50% 45% at 50% 20%, rgba(34, 197, 94, 0.12), transparent 70%),
+        var(--bg);
+    }
+    .thanks-wrap { width: min(100%, 560px); text-align: center; }
+    .thanks-wrap .brand { justify-content: center; margin-bottom: 1.6rem; }
+    .thanks-card {
+      padding: clamp(1.8rem, 5vw, 2.8rem);
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .thanks-icon {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 1.3rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: var(--accent);
+    }
+    .thanks-icon svg { width: 26px; height: 26px; }
+    .thanks-card .eyebrow { margin-bottom: 0.6rem; }
+    .thanks-card h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 0.7rem;
+    }
+    .thanks-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 40ch; margin: 0 auto; }
+    .thanks-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 1.7rem;
+    }
+    .thanks-foot { margin-top: 1.5rem; font-size: 0.74rem; color: var(--muted); }
+  </style>
+</head>
+<body class="thanks-page">
+  <main class="thanks-wrap">
+    <a class="brand" href="index.html" aria-label="M Noman Qasim — back to portfolio">
+      <span class="brand-mark" aria-hidden="true">NQ</span>
+      <span class="brand-name">Noman Qasim</span>
+    </a>
+
+    <div class="thanks-card">
+      <span class="thanks-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6 9 17l-5-5"/>
+        </svg>
+      </span>
+      <span class="eyebrow">Message sent</span>
+      <h1>Thanks for reaching out.</h1>
+      <p>Your message is on its way. I'll get back to you as soon as I can — usually within a day or two.</p>
+
+      <div class="thanks-actions">
+        <a class="btn btn--accent" href="index.html">Back to portfolio</a>
+        <a class="btn btn--ghost" href="mailto:nomanqasim.work@gmail.com">Email me directly</a>
+      </div>
+    </div>
+
+    <p class="thanks-foot">© <span id="year">2026</span> Noman Qasim. All rights reserved.</p>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+  </script>
+</body>
+</html>
