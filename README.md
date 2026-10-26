@@ -17,29 +17,22 @@ assets/
     og-image.png           Social sharing image
     favicon.svg            Browser icon
     tallyreel-cover.svg    TallyReel project cover art
-    profile-placeholder.svg
-    noman.jpg              Your portrait (900 × 900, compressed)
+    tech-visual.svg        Hero tech illustration (laptop with code)
 README.md
 ```
 
-## 1. Your photo
+## 1. Hero visual
 
-Your portrait is already saved as **`assets/images/noman.jpg`** and appears in the hero.
-The page applies a subtle desaturation and dark vignette so the purple studio background
-sits comfortably inside the dark emerald theme.
+The hero uses a custom **tech illustration** instead of a photo:
+**`assets/images/tech-visual.svg`** — a dark laptop with glowing code, circuit lines and
+floating developer icons.
 
-On phones (640 px and below) the portrait switches to a **compact circular avatar** that sits
-in the same flex row as the name and is vertically centred with it, so it no longer pushes the
-content down the page.
+- Desktop: a large rounded card in the hero's right column.
+- Phones (640 px and below): a **compact 100px circular badge** in the same flex row as the
+  name, vertically centred with it.
 
-To replace it later:
-
-1. Save the new photo as **`noman.jpg`**
-2. Put it in `assets/images/`
-3. Refresh the page.
-
-Recommended: a portrait crop (4:5) or square, roughly 900 × 1100 px, under 300 KB.
-The image is cropped from the top-centre, so keep the face in the upper half.
+To use a different image later, replace `tech-visual.svg` or update the two `src` values in
+`index.html`. A square SVG or PNG works best (800 × 800 or larger, under 300 KB).
 
 ## 2. Preview locally
 
@@ -119,7 +112,7 @@ The direct email link below the form remains available as a fallback.
 
 - The TallyReel entry is described honestly as **product exploration and AI output
   evaluation**, matching your brief — not as a project you developed.
-- Your photo and CV are already included. Project links and social URLs are wired up.
+- Your CV is already included, and the hero uses a custom tech illustration. Project links and social URLs are wired up.
 - Reduced-motion preferences, keyboard focus styles and labels are included.
 - All links open in a new tab where appropriate (`rel="noopener"`).
 

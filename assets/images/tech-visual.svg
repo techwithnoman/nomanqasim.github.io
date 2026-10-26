@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="techTitle techDesc">
+  <title id="techTitle">Developer laptop with glowing code</title>
+  <desc id="techDesc">A dark laptop illustration with green code, circuit lines and floating developer icons.</desc>
+
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0" stop-color="#123a2b"/>
+      <stop offset="0.55" stop-color="#0a1511"/>
+      <stop offset="1" stop-color="#070b0a"/>
+    </radialGradient>
+    <linearGradient id="screenFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1b16"/>
+      <stop offset="1" stop-color="#06100c"/>
+    </linearGradient>
+    <linearGradient id="baseFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a2b24"/>
+      <stop offset="1" stop-color="#0a120f"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22c55e" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#4ade80" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#22c55e" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#22c55e" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <pattern id="keys" width="34" height="18" patternUnits="userSpaceOnUse">
+      <rect x="2" y="2" width="28" height="12" rx="3" fill="#1d352a"/>
+    </pattern>
+    <filter id="blurGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <rect width="800" height="800" fill="url(#grid)"/>
+
+  <circle cx="400" cy="380" r="270" fill="#22c55e" opacity="0.08" filter="url(#blurGlow)"/>
+  <ellipse cx="400" cy="640" rx="300" ry="42" fill="#22c55e" opacity="0.14" filter="url(#blurGlow)"/>
+
+  <g fill="none" stroke="#22c55e" stroke-width="2" stroke-opacity="0.2">
+    <path d="M70 180h64l28 28v56"/>
+    <path d="M730 190h-58l-30 30v50"/>
+    <path d="M66 620h58l30-30v-48"/>
+    <path d="M736 620h-64l-28-28v-42"/>
+  </g>
+  <g fill="#4ade80" opacity="0.5">
+    <circle cx="70" cy="180" r="4"/>
+    <circle cx="730" cy="190" r="4"/>
+    <circle cx="66" cy="620" r="4"/>
+    <circle cx="736" cy="620" r="4"/>
+  </g>
+
+  <g>
+    <rect x="104" y="154" width="66" height="54" rx="15" fill="#0d1c16" stroke="#2b5a43"/>
+    <text x="137" y="189" text-anchor="middle" font-family="ui-monospace, Consolas, monospace" font-size="23" font-weight="700" fill="#4ade80">&lt;/&gt;</text>
+  </g>
+
+  <g transform="translate(672 150)" stroke="#4ade80" stroke-width="2" fill="none" opacity="0.7">
+    <circle r="18"/>
+    <circle r="7"/>
+    <path d="M0 -27v8M0 19v8M-27 0h8M19 0h8M-19 -19l6 6M13 13l6 6M19 -19l-6 6M-13 13l-6 6"/>
+  </g>
+
+  <g transform="translate(662 600)">
+    <path d="M0 -30 26 -15 26 15 0 30 -26 15 -26 -15Z" fill="#0d1c16" stroke="#2b5a43"/>
+    <text x="0" y="6" text-anchor="middle" font-family="ui-monospace, Consolas, monospace" font-size="15" font-weight="700" fill="#86efac">AI</text>
+  </g>
+
+  <g>
+    <rect x="152" y="196" width="496" height="342" rx="28" fill="#000" opacity="0.35" filter="url(#blurGlow)"/>
+    <rect x="150" y="190" width="500" height="340" rx="26" fill="#0d1713" stroke="#2d4a3d" stroke-width="2"/>
+    <rect x="172" y="212" width="456" height="296" rx="14" fill="url(#screenFill)" stroke="#1f3a30"/>
+    <path d="M172 226a14 14 0 0 1 14-14h428a14 14 0 0 1 14 14v20H172z" fill="#0e1c17"/>
+    <circle cx="194" cy="229" r="4" fill="#f87171"/>
+    <circle cx="210" cy="229" r="4" fill="#fbbf24"/>
+    <circle cx="226" cy="229" r="4" fill="#34d399"/>
+    <text x="400" y="234" text-anchor="middle" font-family="ui-monospace, Consolas, monospace" font-size="12" fill="#6f9485">noman.dev</text>
+    <path d="M172 246h456" stroke="#1c352b"/>
+
+    <g font-family="ui-monospace, Consolas, monospace" font-size="15">
+      <text x="194" y="280" fill="#6f9485">01</text>
+      <text x="230" y="280" fill="#86efac">const</text>
+      <text x="284" y="280" fill="#e2e8f0">build = (idea) =&gt; {</text>
+
+      <text x="194" y="310" fill="#6f9485">02</text>
+      <text x="230" y="310" fill="#86efac">const</text>
+      <text x="284" y="310" fill="#e2e8f0">ui =</text>
+      <text x="326" y="310" fill="#5eead4">design</text>
+      <text x="392" y="310" fill="#e2e8f0">(idea);</text>
+
+      <text x="194" y="340" fill="#6f9485">03</text>
+      <text x="230" y="340" fill="#86efac">return</text>
+      <text x="294" y="340" fill="#e2e8f0">ui.</text>
+      <text x="326" y="340" fill="#5eead4">deploy</text>
+      <text x="392" y="340" fill="#e2e8f0">();</text>
+
+      <text x="194" y="370" fill="#6f9485">04</text>
+      <text x="230" y="370" fill="#e2e8f0">};</text>
+
+      <text x="194" y="400" fill="#6f9485">05</text>
+      <text x="230" y="400" fill="#4b6b5e">// ship something great</text>
+
+      <text x="194" y="430" fill="#6f9485">06</text>
+      <rect x="230" y="417" width="8" height="16" fill="#4ade80" opacity="0.9"/>
+    </g>
+
+    <path d="M172 212h180L172 420z" fill="#4ade80" opacity="0.035"/>
+    <path d="M196 494h408" stroke="url(#rim)" stroke-width="2" opacity="0.7"/>
+  </g>
+
+  <g>
+    <path d="M118 540h564l38 58c6 9 0 16-11 16H91c-11 0-17-7-11-16z" fill="url(#baseFill)" stroke="#294437" stroke-width="2"/>
+    <path d="M128 548h544l24 36H104z" fill="#0a1310" opacity="0.75"/>
+    <rect x="142" y="552" width="516" height="34" rx="6" fill="url(#keys)" opacity="0.85"/>
+    <rect x="352" y="592" width="96" height="14" rx="7" fill="#1b3328" opacity="0.9"/>
+    <path d="M120 608h560" stroke="url(#rim)" stroke-width="2" opacity="0.6"/>
+    <circle cx="658" cy="600" r="4" fill="#4ade80" opacity="0.8"/>
+  </g>
+</svg>
